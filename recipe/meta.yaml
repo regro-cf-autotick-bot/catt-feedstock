@@ -1,5 +1,5 @@
 {% set name = "catt" %}
-{% set version = "0.12.10" %}
+{% set version = "0.12.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/catt-{{ version }}.tar.gz
-  sha256: a462f126ad2630ef7f57ea66ca3808eee7620b25de74d76a9204c8a87e874c1f
+  sha256: dbb024a1ed37705596db1f957bdeb99123eff26e724082fce23357367c458b73
 
 build:
   entry_points:
