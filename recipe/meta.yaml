@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/catt-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/catt-{{ version }}.tar.gz
   sha256: dbb024a1ed37705596db1f957bdeb99123eff26e724082fce23357367c458b73
 
 build:
@@ -14,15 +14,15 @@ build:
     - catt = catt.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - poetry
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - click >=7.1.2
     - ifaddr >=0.1.7
     - pychromecast >=13.0.7,<14
@@ -37,6 +37,7 @@ test:
     - catt --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/skorokithakis/catt
